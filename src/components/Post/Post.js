@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -18,6 +16,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,11 +52,7 @@ const Post = (props) => {
             setExpanded(!expanded);
         };
 
-        const [likeColor, setLikeColor] = useState('');
-
-        const handleLike = () => {
-        const color = likeColor ? '' : 'primary';
-        setLikeColor(color);
+        
     return (
         <div>
             <Card className={classes.root}>
@@ -77,7 +72,7 @@ const Post = (props) => {
                 />
                 <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/paella.jpg"
+                    image="/public/pic.jpg"
                     title={title}
                 />
                 <CardContent>
@@ -85,19 +80,18 @@ const Post = (props) => {
                         {body}
                     </Typography>
                 </CardContent>
-
+                
                 <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites" onClick={handleLike} color={likeColor}>
+                    <IconButton aria-label="add to favorites" onClick={() => alert('Settings Features Coming Soon !!!')}>
                     <FavoriteIcon />
                     </IconButton>
-
-                    <IconButton aria-label="share" onClick={() => alert('Sharing Features Coming Soon !!!')}>
+                    <IconButton aria-label="share" onClick={() => alert('Settings Features Coming Soon !!!')}>
                     <ShareIcon />
                     </IconButton>
-                    <Button>
-                    <Link to={`/post/${id}`} style={{ textDecoration: 'none' }}>READ MORE</Link>
-                    </Button>
 
+                    <Button variant="contained" color="primary">
+                        <Link to={`/comment`} style={{ textDecoration: 'none' }}>Read More</Link>
+                    </Button>
                     <IconButton
                     className={clsx(classes.expand, {
                         [classes.expandOpen]: expanded,
@@ -124,10 +118,11 @@ const Post = (props) => {
                     <Typography paragraph>
                         {body}
                     </Typography>
-                    </CardContent>
-                    </Collapse>
-                </Card>
+                </CardContent>
+             </Collapse>
+            </Card>
         </div>
     );
 };
+
 export default Post;
