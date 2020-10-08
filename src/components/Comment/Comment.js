@@ -32,11 +32,9 @@ const Comment = () => {
 
     const { id } = useParams();
 
-    // console.log('clicked post id', id); 
-    // random user api id
     const [comments, setComments] = useState([]);
 
-    // console.log('clicked post comments', comments);
+    console.log('clicked post comments', comments);
 
     const [post, setPosts] = useState({});
 
@@ -67,7 +65,7 @@ const Comment = () => {
             <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image="/public/pic.jpg"
+                    image="https://devbizops.files.wordpress.com/2020/04/135-choice-of-programming-language.jpg"
                     title="Contemplative Reptile"
                 />
                 <CardContent>
@@ -87,10 +85,7 @@ const Comment = () => {
                     </Button>
             </CardActions>
             <h2>Post Comments</h2>
-            <hr />
-            {
-                comments.map(comment => <PostComment comment={comment}></PostComment>)
-            }
+            <PostComment></PostComment>
         </Card>
 
     );

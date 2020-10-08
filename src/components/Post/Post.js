@@ -17,10 +17,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import './Post.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 645,
   },
   media: {
     height: 0,
@@ -54,7 +55,7 @@ const Post = (props) => {
 
         
     return (
-        <div>
+        <div className="body">
             <Card className={classes.root}>
                 <CardHeader
                     avatar={
@@ -72,7 +73,7 @@ const Post = (props) => {
                 />
                 <CardMedia
                     className={classes.media}
-                    image="/public/pic.jpg"
+                    image="https://devbizops.files.wordpress.com/2020/04/135-choice-of-programming-language.jpg"
                     title={title}
                 />
                 <CardContent>
